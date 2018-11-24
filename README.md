@@ -2,7 +2,7 @@
 
 ## Renseignez votre nom d'utilisateur
 ```
-git config --global user.name "username"
+git config --global user.name "NOM_D_UTILISATEUR"
 ```
 
 ### V&eacute;rifiez votre nom d'utilisateur
@@ -25,5 +25,21 @@ git config --global user.email
 git clone https://git.iut-orsay.fr/kevin.dauriach/mercury.git
 ```
 
-# Etape 3 : En cours
+# Etape 3 : G&eacute;rez votre branche
 
+## Cr&eacute;ez une branche
+```
+git checkout -b NOM_DE_LA_BRANCHE
+```
+
+## Déplacez-vous dans une branche
+```
+git checkout NOM_DE_LA_BRANCHE
+```
+
+# Etape 4 : Envoyez vos modifications sur une branche
+```
+git add .
+git commit -m "COMMENTAIRE"
+git push origin NOM_DE_LA_BRANCHE
+```
