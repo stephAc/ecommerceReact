@@ -41,5 +41,5 @@ git checkout NOM_DE_LA_BRANCHE
 ```
 git add .
 git commit -m "COMMENTAIRE"
-git push origin NOM_DE_LA_BRANCHE
+git push -u origin NOM_DE_LA_BRANCHE
 ```
