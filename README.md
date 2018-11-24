@@ -32,7 +32,7 @@ git clone https://git.iut-orsay.fr/kevin.dauriach/mercury.git
 git checkout -b NOM_DE_LA_BRANCHE
 ```
 
-## Déplacez-vous dans une branche
+## D&eacute;placez-vous dans une branche
 ```
 git checkout NOM_DE_LA_BRANCHE
 ```
