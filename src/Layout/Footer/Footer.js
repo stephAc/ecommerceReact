@@ -1,0 +1,4 @@
+import React from 'react';
+import './Footer.css';
+
+export default () => <div className="footerStyle">Footer</div>;
