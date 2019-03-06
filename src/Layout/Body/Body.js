@@ -1,4 +1,4 @@
 import React from 'react';
-import Home from '../../Components/Home/Home';
+import Home from '../../Components/Body/Home/Home';
 
 export default () => <Home />;
