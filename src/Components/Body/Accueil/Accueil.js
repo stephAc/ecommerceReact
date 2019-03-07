@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './Home.css';
+import './Accueil.css';
 import { Link } from 'react-router-dom';
 
-export default class Home extends Component {
+export default class Accueil extends Component {
   render() {
     return (
       <div className="homePage">
@@ -15,7 +15,7 @@ export default class Home extends Component {
         </p>
         <div>
           <button>Se connecter</button>
-          <Link to="/accueil">
+          <Link to="/">
             <button>Poursuivre sans compte </button>
           </Link>
         </div>
