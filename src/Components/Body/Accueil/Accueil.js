@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import './Accueil.css';
 import ListeProduit from '../ListeProduit/ListeProduit';
-import Header from '../../Header/Header';
+import Header from '../../Navigation/Header/Header';
 import Footer from '../../Footer/Footer';
 export default class Accueil extends Component {
   render() {
