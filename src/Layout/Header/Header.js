@@ -1,8 +1,11 @@
 import './Header.css';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default () => (
   <header className="headerStyle">
-    <span>Mercury</span>
+    <Link to="/">
+      <span>Mercury</span>
+    </Link>
   </header>
 );

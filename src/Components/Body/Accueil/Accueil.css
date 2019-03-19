@@ -1,0 +1,27 @@
+.listProd {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 95%;
+  height: 400px;
+  min-width: 190px;
+  margin: 20px auto 35px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 5px gray;
+  background-color: #f8f8f8;
+}
+
+.searchAcc {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 55px;
+  height: 70px;
+  width: 100%;
+  background-color: antiquewhite;
+}
