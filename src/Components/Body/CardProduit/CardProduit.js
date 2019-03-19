@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './FicheProduit.css';
+import './CardProduit.css';
 
 export default class FicheProduit extends Component {
   render() {
