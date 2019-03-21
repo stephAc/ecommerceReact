@@ -16,7 +16,6 @@ export default class Accueil extends Component {
           <h1 style={{ marginLeft: 10 }}>Produits</h1>
           <ListeProduit />
         </div>
-        <Footer />
       </Fragment>
     );
   }

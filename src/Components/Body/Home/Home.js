@@ -14,10 +14,12 @@ export default class Home extends Component {
               Ici vous trouverez toutes nos gammes de produits de soin ainsi
               qu'une sélection d'articles quotidiens à prix très étudiés.
               <br />
-              Commandez que le site et faites vous livrer chez vous.
+              Commandez sur le site et faites vous livrer chez vous.
             </p>
             <div>
-              <button>Se connecter</button>
+              <Link to="/connexion">
+                <button>Se connecter</button>
+              </Link>
               <Link to="/accueil">
                 <button>Poursuivre sans compte </button>
               </Link>
@@ -27,22 +29,4 @@ export default class Home extends Component {
       </div>
     );
   }
-}
-
-{
-  /* <div className="homePage">
-        <p>Bienvenue sur le site de vente en ligne de Gerion Health</p>
-        <br />
-        <p>
-          Ici vous trouverez toutes nos gammes de produits de soin ainsi qu'une
-          sélection d'articles quotidiens à prix très étudiés. Commandez que le
-          site et faites vous livrer chez vous.
-        </p>
-        <div>
-          <button>Se connecter</button>
-          <Link to="/accueil">
-            <button>Poursuivre sans compte </button>
-          </Link>
-        </div>
-      </div> */
 }

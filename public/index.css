@@ -10,11 +10,14 @@ button {
   width: 180px;
   height: 30px;
   margin: 5px;
-  border: 1px solid #00ff00;
+  border: 1px solid #27ae60;
   background: white;
 }
 
 button:hover {
   cursor: pointer;
-  background-color: #00ff00;
+  background-color: #27ae60;
 }
+
+/* green = #2ecc71 */
+/* dark-green = #27ae60 */

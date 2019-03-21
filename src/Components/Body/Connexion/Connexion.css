@@ -1,0 +1,105 @@
+.loginPanel {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  min-width: 130px;
+  padding: 20px;
+  margin: auto;
+  border-radius: 4px;
+  box-shadow: 0 0 5px 1px #333;
+}
+
+.register {
+  color: #444;
+  text-decoration: none;
+  transition: all 0s;
+}
+.register:hover {
+  color: #2ecc71;
+}
+.register:active {
+  transform: translateY(2px);
+}
+
+.inputLog {
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  margin: 8px 0px;
+  padding: 12px;
+}
+
+input[type='text'],
+input[type='password'] {
+  color: #555;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  background-color: #e8e8e8;
+}
+
+input[type='text']:hover,
+input[type='password']:hover,
+input[type='text']:focus,
+input[type='password']:focus {
+  background-color: blanchedalmond;
+}
+
+input[type='text']:focus,
+input[type='password']:focus {
+  border: 2px solid #27ae60;
+}
+
+.labelLogin {
+  cursor: text;
+}
+
+.btnDivLog {
+  display: flex;
+}
+
+.btnDivLog > span {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 15px;
+  line-height: 70px;
+  text-align: center;
+}
+
+.btnLog {
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
+  border: 0 none;
+  border-radius: 4px;
+  outline: none;
+  background-color: #2ecc71;
+  box-shadow: 0 2px #27ae60;
+}
+
+.btnLog:active {
+  transform: translateY(2px);
+}
+
+@media only screen and (max-width: 555px) {
+  .loginPanel {
+    width: 80%;
+  }
+
+  .btnDivLog {
+    flex-direction: column;
+  }
+
+  .btnDivLog > span > a {
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .loginPanel {
+    width: 70%;
+  }
+}
