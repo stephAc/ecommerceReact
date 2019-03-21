@@ -8,3 +8,11 @@
   width: 100%;
   background-color: antiquewhite;
 }
+
+.selectAcc {
+  width: 180px;
+  height: 30px;
+  margin: 5px;
+  border: 1px solid #27ae60;
+  background: white;
+}

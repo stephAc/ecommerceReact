@@ -4,18 +4,36 @@ import ListeProduit from '../ListeProduit/ListeProduit';
 import Header from '../../Navigation/Header/Header';
 import Footer from '../../Footer/Footer';
 export default class Accueil extends Component {
+  state = {
+    selectCategorie: 'Catégories',
+  };
+
+  handleSelect = event => {
+    this.setState({ selectCategorie: event.target.value });
+    console.log(event.target.value);
+  };
+
   render() {
     return (
       <Fragment>
         <Header />
         <div className="searchAcc">
-          <button>Catégories</button>
+          <select
+            className="selectAcc"
+            value={this.state.selectCategorie}
+            onChange={this.handleSelect}
+          >
+            <option value="Catégories">Catégories</option>
+            <option value="Produits de vie">Produits de vie</option>
+            <option value="Produits de santé">Produits de santé</option>
+          </select>
           <button>Search</button>
         </div>
         <div>
           <h1 style={{ marginLeft: 10 }}>Produits</h1>
           <ListeProduit />
         </div>
+        <Footer />
       </Fragment>
     );
   }
