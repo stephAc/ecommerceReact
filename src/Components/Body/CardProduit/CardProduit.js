@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './CardProduit.css';
-
 export default class FicheProduit extends Component {
   render() {
     return (

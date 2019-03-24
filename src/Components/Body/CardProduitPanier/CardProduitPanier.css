@@ -1,31 +1,33 @@
-.ficheProduit {
+.ficheProduitPanier {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   width: 80%;
   max-width: 350px;
   min-width: 200px;
-  max-height: 150px;
   padding: 10px;
   margin: 5px 5px 5px 5px;
   background-color: white;
 }
 
-.prodDetail {
+.produitPanier {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
 }
 
-.btnProduit {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.inputPanier {
+  width: 30%;
+  border: none;
+}
+
+.btnStylePanier {
+  width: 100%;
 }
 
 @media screen and (max-width: 400px) {
-  .btnProduit {
+  .btnProduitPanier {
     flex-direction: column;
     align-items: center;
   }
