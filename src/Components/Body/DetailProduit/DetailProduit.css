@@ -1,9 +1,13 @@
 .gridDetail {
+  height: calc(100vh - 200px);
   display: grid;
-  grid-template-columns: 3fr 6fr 2fr;
+  grid-template-columns: 3fr 6fr;
   grid-gap: 10px;
-  margin: 80px 20px 0px 20px;
-  text-align: center;
+  margin: 80px 20px 60px 20px;
+}
+
+#itemDetailOne {
+  max-width: 350px;
 }
 
 .detailFlex {
@@ -15,4 +19,20 @@
 
 .descriptionDetail {
   justify-content: space-around;
+}
+
+.btnAjouter {
+  width: 100%;
+  margin: 15px 0 0 0;
+}
+
+.listCom {
+  height: 400px;
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 500px) {
+  .gridDetail {
+    grid-template-columns: 1fr;
+  }
 }

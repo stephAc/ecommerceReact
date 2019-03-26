@@ -20,10 +20,20 @@ export default class DetailProduit extends Component {
       <Fragment>
         <Header />
         <div className="gridDetail">
-          <div className="detailFlex">
+          <div className="detailFlex" id="itemDetailOne">
             <h2>Name</h2>
             <img src={img} alt="Produit" width="80%" />
             <p>Note : </p>
+            <p>Prix : </p>
+            <input
+              type="number"
+              name="qte"
+              value={this.state.qte}
+              onChange={this.handleQteChange}
+              min="1"
+              max="100"
+            />
+            <button className="btnAjouter">Ajouter</button>
           </div>
           <div className="detailFlex descriptionDetail">
             <h2>Descritption</h2>
@@ -39,21 +49,18 @@ export default class DetailProduit extends Component {
               publishing software like Aldus PageMaker including versions of
               Lorem Ipsum.
             </p>
-            <div>
-              <Comment />
+
+            <h2>Commentaires</h2>
+            <div className="listCom">
+              <Comment idkey="1" idBtn="9" />
+              <Comment idkey="2" idBtn="10" />
+              <Comment idkey="3" idBtn="11" />
+              <Comment idkey="4" idBtn="12" />
+              <Comment idkey="5" idBtn="13" />
+              <Comment idkey="6" idBtn="14" />
+              <Comment idkey="7" idBtn="15" />
+              <Comment idkey="8" idBtn="16" />
             </div>
-          </div>
-          <div className="detailFlex">
-            <p>Prix : </p>
-            <input
-              type="number"
-              name="qte"
-              value={this.state.qte}
-              onChange={this.handleQteChange}
-              min="1"
-              max="100"
-            />
-            <button>Ajouter</button>
           </div>
         </div>
       </Fragment>
