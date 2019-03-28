@@ -20,3 +20,15 @@
   margin: 0;
   margin-bottom: 5px;
 }
+
+@media screen and (max-width: 500px) {
+  .gridComment {
+    grid-template-columns: 1fr;
+  }
+  .authorInfo {
+    max-width: 150px;
+  }
+  .author {
+    margin-bottom: 0px;
+  }
+}

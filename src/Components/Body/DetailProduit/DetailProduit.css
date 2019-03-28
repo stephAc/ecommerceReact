@@ -10,6 +10,11 @@
   max-width: 350px;
 }
 
+.inputQteDetail {
+  width: 30%;
+  border: none;
+}
+
 .detailFlex {
   display: flex;
   flex-direction: column;
@@ -34,5 +39,8 @@
 @media screen and (max-width: 500px) {
   .gridDetail {
     grid-template-columns: 1fr;
+  }
+  .listCom {
+    overflow-y: unset;
   }
 }

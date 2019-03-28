@@ -25,14 +25,25 @@ export default class DetailProduit extends Component {
             <img src={img} alt="Produit" width="80%" />
             <p>Note : </p>
             <p>Prix : </p>
-            <input
-              type="number"
-              name="qte"
-              value={this.state.qte}
-              onChange={this.handleQteChange}
-              min="1"
-              max="100"
-            />
+            <p
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+              }}
+            >
+              Quantité :
+              <input
+                type="number"
+                name="qte"
+                value={this.state.qte}
+                onChange={this.handleQteChange}
+                min="1"
+                max="100"
+                className="inputQteDetail"
+              />
+            </p>
+
             <button className="btnAjouter">Ajouter</button>
           </div>
           <div className="detailFlex descriptionDetail">
