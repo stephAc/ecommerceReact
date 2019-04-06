@@ -1,0 +1,46 @@
+.gridDetail {
+  height: calc(100vh - 200px);
+  display: grid;
+  grid-template-columns: 3fr 6fr;
+  grid-gap: 10px;
+  margin: 80px 20px 60px 20px;
+}
+
+#itemDetailOne {
+  max-width: 350px;
+}
+
+.inputQteDetail {
+  width: 30%;
+  border: none;
+}
+
+.detailFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin: 0px auto 0px auto;
+}
+
+.descriptionDetail {
+  justify-content: space-around;
+}
+
+.btnAjouter {
+  width: 100%;
+  margin: 15px 0 0 0;
+}
+
+.listCom {
+  height: 400px;
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 500px) {
+  .gridDetail {
+    grid-template-columns: 1fr;
+  }
+  .listCom {
+    overflow-y: unset;
+  }
+}
