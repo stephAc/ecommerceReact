@@ -7,6 +7,7 @@ import RegistrationForm from '../Components/Body/RegistrationForm/RegistrationFo
 import Connexion from '../Components/Body/Connexion/Connexion';
 import Panier from '../Components/Body/Panier/Panier';
 import DetailProduit from '../Components/Body/DetailProduit/DetailProduit';
+import Info from '../Components/Body/Info/Info';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
         <Route exact path="/connexion" component={Connexion} />
         <Route exact path="/panier" component={Panier} />
         <Route exact path="/detail" component={DetailProduit} />
+        <Route exact path="/info" component={Info} />
       </Switch>
     );
   }

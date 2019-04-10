@@ -1,0 +1,42 @@
+.userInfoGrid {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+}
+
+.inputModified {
+  border: none;
+  background: inherit;
+
+  border: none;
+  background: #e8e8e8;
+  box-shadow: 0px 0px 5px black;
+}
+
+.inputIsNotModified {
+  border: none;
+  background: inherit;
+}
+
+.displayForm {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.btnQuit {
+  border: 2px solid red;
+}
+
+.btnQuit:hover {
+  background-color: red;
+  color: white;
+}
+
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
