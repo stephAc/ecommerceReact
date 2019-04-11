@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Info.css';
 import avatarImg from '../../../assets/img/avatarUser.png';
+import Header from '../../Navigation/Header/Header';
 
 export default class InFO extends Component {
   state = {
@@ -29,104 +30,105 @@ export default class InFO extends Component {
   render() {
     const inputStyle =
       this.state.enableInputBool === true
-        ? 'inputIsNotModified'
-        : 'inputModified';
-
-    const showHide = this.state.enableInputBool === true ? 'hide' : 'show';
+        ? ['inputIsNotModified', 'hide']
+        : ['inputModified', 'show'];
 
     return (
-      <div className="userInfoGrid">
-        <div>
-          <h1>Info</h1>
-          <img src={avatarImg} alt="Avatar" width="250px" height="250px" />
-          <button>Supprimer</button>
-          <button onClick={this.enableInput}>Modifier</button>
-        </div>
-        <div className="displayForm">
-          <label>
-            Nom :
-            <input
-              className={inputStyle}
-              type="text"
-              name="nom"
-              onChange={this.handleInput}
-              value={this.state.nom}
-              disabled={this.state.enableInputBool}
-            />
-          </label>
-          <label>
-            Prénom :
-            <input
-              className={inputStyle}
-              type="text"
-              name="prenom"
-              onChange={this.handleInput}
-              value={this.state.prenom}
-              disabled={this.state.enableInputBool}
-            />
-          </label>
-          <label>
-            Sexe :
-            <input
-              className={inputStyle}
-              type="text"
-              name="sexe"
-              onChange={this.handleInput}
-              value={this.state.sexe}
-              disabled={this.state.enableInputBool}
-            />
-          </label>
-          <label>
-            Téléphone :
-            <input
-              className={inputStyle}
-              id="inputTest"
-              type="text"
-              name="telephone"
-              onChange={this.handleInput}
-              value={this.state.telephone}
-              disabled={this.state.enableInputBool}
-            />
-          </label>
-          <label>
-            Adresse :
-            <textarea
-              className={inputStyle}
-              type="text"
-              name="adresse"
-              onChange={this.handleInput}
-              value={this.state.adresse}
-              disabled={this.state.enableInputBool}
-            />
-          </label>
-          <label>
-            Adresse de facturation :
-            <textarea
-              className={inputStyle}
-              type="text"
-              name="adresseFactu"
-              onChange={this.handleInput}
-              value={this.state.adresseFactu}
-              disabled={this.state.enableInputBool}
-            />
-          </label>
-          <label>
-            Adresse de livraison :
-            <textarea
-              className={inputStyle}
-              type="text"
-              name="adresseLivraison"
-              onChange={this.handleInput}
-              value={this.state.adresseLivraison}
-              disabled={this.state.enableInputBool}
-            />
-          </label>
-          <div className={showHide}>
-            <button>Sauvegarder</button>
-            <button className="btnQuit">Annuler</button>
+      <React.Fragment>
+        <Header />
+        <div className="userInfoGrid">
+          <div className="infoAvatar">
+            <h1>Info</h1>
+            <img src={avatarImg} alt="Avatar" width="250px" height="250px" />
+            <button>Supprimer</button>
+            <button onClick={this.enableInput}>Modifier</button>
+          </div>
+          <div className="displayForm">
+            <label>
+              Nom :
+              <input
+                className={inputStyle[0]}
+                type="text"
+                name="nom"
+                onChange={this.handleInput}
+                value={this.state.nom}
+                disabled={this.state.enableInputBool}
+              />
+            </label>
+            <label>
+              Prénom :
+              <input
+                className={inputStyle[0]}
+                type="text"
+                name="prenom"
+                onChange={this.handleInput}
+                value={this.state.prenom}
+                disabled={this.state.enableInputBool}
+              />
+            </label>
+            <label>
+              Sexe :
+              <input
+                className={inputStyle[0]}
+                type="text"
+                name="sexe"
+                onChange={this.handleInput}
+                value={this.state.sexe}
+                disabled={this.state.enableInputBool}
+              />
+            </label>
+            <label>
+              Téléphone :
+              <input
+                className={inputStyle[0]}
+                id="inputTest"
+                type="text"
+                name="telephone"
+                onChange={this.handleInput}
+                value={this.state.telephone}
+                disabled={this.state.enableInputBool}
+              />
+            </label>
+            <label>
+              Adresse :
+              <textarea
+                className={inputStyle[0]}
+                type="text"
+                name="adresse"
+                onChange={this.handleInput}
+                value={this.state.adresse}
+                disabled={this.state.enableInputBool}
+              />
+            </label>
+            <label>
+              Adresse de facturation :
+              <textarea
+                className={inputStyle[0]}
+                type="text"
+                name="adresseFactu"
+                onChange={this.handleInput}
+                value={this.state.adresseFactu}
+                disabled={this.state.enableInputBool}
+              />
+            </label>
+            <label>
+              Adresse de livraison :
+              <textarea
+                className={inputStyle[0]}
+                type="text"
+                name="adresseLivraison"
+                onChange={this.handleInput}
+                value={this.state.adresseLivraison}
+                disabled={this.state.enableInputBool}
+              />
+            </label>
+            <div className={inputStyle[1]}>
+              <button>Sauvegarder</button>
+              <button className="btnQuit">Annuler</button>
+            </div>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
