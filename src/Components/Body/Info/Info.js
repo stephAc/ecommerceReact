@@ -39,8 +39,8 @@ export default class InFO extends Component {
         <div className="userInfoGrid">
           <div className="infoAvatar">
             <h1>Info</h1>
-            <img src={avatarImg} alt="Avatar" width="250px" height="250px" />
-            <button>Supprimer</button>
+            <img src={avatarImg} alt="Avatar" width="200px" height="200px" />
+            <button style={{ marginTop: 50 }}>Supprimer</button>
             <button onClick={this.enableInput}>Modifier</button>
           </div>
           <div className="displayForm">

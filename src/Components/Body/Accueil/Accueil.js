@@ -29,11 +29,10 @@ export default class Accueil extends Component {
           </select>
           <button>Search</button>
         </div>
-        <div>
+        <div style={{ marginBottom: 15 }}>
           <h1 style={{ marginLeft: 10 }}>Produits</h1>
           <ListeProduit />
         </div>
-        <Footer />
       </Fragment>
     );
   }
