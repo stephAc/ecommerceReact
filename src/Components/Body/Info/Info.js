@@ -43,11 +43,13 @@ export default class InFO extends Component {
             <button style={{ marginTop: 50 }}>Supprimer</button>
             <button onClick={this.enableInput}>Modifier</button>
           </div>
+
           <div className="displayForm">
             <label>
               Nom :
+              <br />
               <input
-                className={inputStyle[0]}
+                className={inputStyle[0] + ' marginInput '}
                 type="text"
                 name="nom"
                 onChange={this.handleInput}
@@ -57,8 +59,9 @@ export default class InFO extends Component {
             </label>
             <label>
               Prénom :
+              <br />
               <input
-                className={inputStyle[0]}
+                className={inputStyle[0] + ' marginInput '}
                 type="text"
                 name="prenom"
                 onChange={this.handleInput}
@@ -68,8 +71,9 @@ export default class InFO extends Component {
             </label>
             <label>
               Sexe :
+              <br />
               <input
-                className={inputStyle[0]}
+                className={inputStyle[0] + ' marginInput '}
                 type="text"
                 name="sexe"
                 onChange={this.handleInput}
@@ -79,8 +83,9 @@ export default class InFO extends Component {
             </label>
             <label>
               Téléphone :
+              <br />
               <input
-                className={inputStyle[0]}
+                className={inputStyle[0] + ' marginInput '}
                 id="inputTest"
                 type="text"
                 name="telephone"
@@ -91,8 +96,9 @@ export default class InFO extends Component {
             </label>
             <label>
               Adresse :
+              <br />
               <textarea
-                className={inputStyle[0]}
+                className={inputStyle[0] + ' marginInput '}
                 type="text"
                 name="adresse"
                 onChange={this.handleInput}
@@ -102,8 +108,9 @@ export default class InFO extends Component {
             </label>
             <label>
               Adresse de facturation :
+              <br />
               <textarea
-                className={inputStyle[0]}
+                className={inputStyle[0] + ' marginInput '}
                 type="text"
                 name="adresseFactu"
                 onChange={this.handleInput}
@@ -113,8 +120,9 @@ export default class InFO extends Component {
             </label>
             <label>
               Adresse de livraison :
+              <br />
               <textarea
-                className={inputStyle[0]}
+                className={inputStyle[0] + ' marginInput '}
                 type="text"
                 name="adresseLivraison"
                 onChange={this.handleInput}
@@ -122,9 +130,11 @@ export default class InFO extends Component {
                 disabled={this.state.enableInputBool}
               />
             </label>
-            <div className={inputStyle[1]}>
+            <div className={inputStyle[1] + ' btnCenter '}>
               <button>Sauvegarder</button>
-              <button className="btnQuit">Annuler</button>
+              <button className="btnQuit" onClick={this.enableInput}>
+                Annuler
+              </button>
             </div>
           </div>
         </div>
