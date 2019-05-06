@@ -1,10 +1,9 @@
 .userInfoGrid {
   display: grid;
-  margin: 70px 50px 0px 50px;
+  margin: 70px 50px 20px 50px;
   grid-template-columns: 2fr 8fr;
   column-gap: 30px;
   box-shadow: 0px 0px 5px black;
-  margin-bottom: 20px;
 }
 
 .infoAvatar {
@@ -43,7 +42,7 @@
 .displayForm {
   height: auto;
   display: flex;
-  flex-wrap: wrap-reverse;
+  flex-wrap: nowrap;
   padding: 15px;
   flex-direction: column;
   justify-content: space-around;
@@ -54,8 +53,8 @@
 }
 
 .btnQuit:hover {
-  background-color: red;
-  color: white;
+  background-color: red !important;
+  color: red;
 }
 
 .show {
@@ -66,12 +65,15 @@
 }
 
 .btnCenter {
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 580px) {
   .userInfoGrid {
     grid-template-columns: 1fr;
+  }
+  .userInfoGrid {
+    margin: 70px 20px 20px 20px;
   }
 }
