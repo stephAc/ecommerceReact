@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './CardProduit.css';
 export default class FicheProduit extends Component {
   render() {
@@ -10,8 +11,10 @@ export default class FicheProduit extends Component {
         </div>
 
         <div className="btnProduit">
-          <button>Voir produit</button>
-          <button>Ajouter</button>
+          <Link to="/detail">
+            <button style={{ width: '100px' }}>Voir produit</button>
+          </Link>
+          <button style={{ width: '100px' }}>Ajouter</button>
         </div>
       </div>
     );
