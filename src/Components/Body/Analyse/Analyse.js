@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import Header from '../../Navigation/Header/Header';
+import Spinner from '../Spinner/Spinner';
 import './Analyse.css';
 
 export default class Analyse extends Component {
@@ -22,6 +24,7 @@ export default class Analyse extends Component {
       grouper: '',
       selectCate: 'Produits de vie',
       selectProd: '',
+      loading: false,
     });
   };
 
@@ -31,88 +34,99 @@ export default class Analyse extends Component {
     });
   };
 
+  handleAnalyseSearch = () => {
+    this.setState({
+      loading: !this.state.loading,
+    });
+  };
+
   render() {
     return (
-      <div>
-        <label htmlFor="deb">
-          Début :
-          <br />
-          <input
-            type="date"
-            id="deb"
-            name="dateDebut"
-            value={this.state.dateDebut}
-            min="2018-01-01"
-            max={this.state.dateJour}
-            onChange={this.handleInput}
-          />
-        </label>
-
-        <br />
-
-        <label htmlFor="fin">
-          Fin :
-          <br />
-          <input
-            type="date"
-            id="fin"
-            name="dateFin"
-            value={this.state.dateFin}
-            min="2018-01-01"
-            max={this.state.dateJour}
-            onChange={this.handleInput}
-          />
-        </label>
-
-        <br />
-
-        <label htmlFor="produit">
-          Produit :
-          <br />
-          <select
-            id="produit"
-            name="selectProd"
-            value={this.state.selectProd}
-            onChange={this.handleInput}
-          />
-        </label>
-
-        <br />
-
-        <label htmlFor="categorie">
-          Secteur :
-          <br />
-          <select
-            id="categorie"
-            name="selectCate"
-            value={this.state.selectCate}
-            onChange={this.handleInput}
-          >
-            <option value="Produits de santé">Produits de santé</option>
-            <option value="Produits de vie">Produits de vie</option>
-          </select>
-        </label>
-
-        <br />
-
+      <Fragment>
+        <Header />
         <div>
-          <input
-            type="radio"
-            value="mois"
-            defaultChecked
-            name="grouper"
-            onChange={this.handleInput}
-          />{' '}
-          Mois
-          <input
-            type="radio"
-            value="semaine"
-            name="grouper"
-            onChange={this.handleInput}
-          />{' '}
-          Semaine
+          <label htmlFor="deb">
+            Début :
+            <br />
+            <input
+              type="date"
+              id="deb"
+              name="dateDebut"
+              value={this.state.dateDebut}
+              min="2018-01-01"
+              max={this.state.dateJour}
+              onChange={this.handleInput}
+            />
+          </label>
+
+          <br />
+
+          <label htmlFor="fin">
+            Fin :
+            <br />
+            <input
+              type="date"
+              id="fin"
+              name="dateFin"
+              value={this.state.dateFin}
+              min="2018-01-01"
+              max={this.state.dateJour}
+              onChange={this.handleInput}
+            />
+          </label>
+
+          <br />
+
+          <label htmlFor="produit">
+            Produit :
+            <br />
+            <select
+              id="produit"
+              name="selectProd"
+              value={this.state.selectProd}
+              onChange={this.handleInput}
+            />
+          </label>
+
+          <br />
+
+          <label htmlFor="categorie">
+            Secteur :
+            <br />
+            <select
+              id="categorie"
+              name="selectCate"
+              value={this.state.selectCate}
+              onChange={this.handleInput}
+            >
+              <option value="Produits de santé">Produits de santé</option>
+              <option value="Produits de vie">Produits de vie</option>
+            </select>
+          </label>
+
+          <br />
+
+          <div>
+            <input
+              type="radio"
+              value="mois"
+              defaultChecked
+              name="grouper"
+              onChange={this.handleInput}
+            />{' '}
+            Mois
+            <input
+              type="radio"
+              value="semaine"
+              name="grouper"
+              onChange={this.handleInput}
+            />{' '}
+            Semaine
+          </div>
+          <button onClick={this.handleAnalyseSearch}>Rechercher</button>
         </div>
-      </div>
+        {this.state.loading ? <Spinner /> : null}
+      </Fragment>
     );
   }
 }
