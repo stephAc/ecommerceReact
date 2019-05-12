@@ -12,11 +12,11 @@ export default class Analyse extends Component {
 
   componentWillMount = () => {
     const date = new Date();
-    const month =
-      date.getMonth() < 10 ? '0' + date.getMonth() : date.getMonth();
+    let month = date.getMonth() + 1;
+    month = month < 10 ? '0' + month : month;
     const day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+    const dateJour = date.getFullYear() + '-' + month + '-' + day;
 
-    let dateJour = date.getFullYear() + '-' + month + '-' + day;
     this.setState({
       dateJour: dateJour,
       dateDebut: dateJour,
