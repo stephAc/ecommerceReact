@@ -1,0 +1,14 @@
+th,
+td {
+  border: solid black;
+  padding: 5px;
+  width: 200px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+caption {
+  font-style: italic;
+}

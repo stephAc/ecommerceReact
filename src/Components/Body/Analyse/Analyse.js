@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Header from '../../Navigation/Header/Header';
 import Spinner from '../Spinner/Spinner';
+import AnalyseTab from '../AnalyseTab/AnalyseTab';
 import './Analyse.css';
 
 export default class Analyse extends Component {
@@ -25,6 +26,7 @@ export default class Analyse extends Component {
       selectCate: 'Produits de vie',
       selectProd: '',
       loading: false,
+      showTab: false,
     });
   };
 
@@ -35,16 +37,27 @@ export default class Analyse extends Component {
   };
 
   handleAnalyseSearch = () => {
-    this.setState({
-      loading: !this.state.loading,
-    });
+    this.setState(
+      {
+        loading: !this.state.loading,
+        showTab: false,
+      },
+      () => {
+        setTimeout(() => {
+          this.setState({
+            loading: !this.state.loading,
+            showTab: true,
+          });
+        }, 3000);
+      },
+    );
   };
 
   render() {
     return (
       <Fragment>
         <Header />
-        <div>
+        <div className="analysePageStyle">
           <label htmlFor="deb">
             Début :
             <br />
@@ -126,6 +139,12 @@ export default class Analyse extends Component {
           <button onClick={this.handleAnalyseSearch}>Rechercher</button>
         </div>
         {this.state.loading ? <Spinner /> : null}
+        {this.state.showTab ? (
+          <AnalyseTab
+            dateDeb={this.state.dateDebut}
+            dateFin={this.state.dateFin}
+          />
+        ) : null}
       </Fragment>
     );
   }
