@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './AnalyseTab.css';
 
-const AnalyseTab = props => {
-  return (
-    <table>
-      <caption>Produit</caption>
-      <thead>
-        <tr>
-          <th>Du {props.dateDeb}</th>
-          <th>Au {props.dateFin}</th>
-          <th>Ventes cumulées</th>
-        </tr>
-      </thead>
-      <tbody />
-    </table>
-  );
-};
+export default class AnalyseTab extends Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.rerender === nextProps.rerender) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
-export default AnalyseTab;
+  render() {
+    return (
+      <table>
+        <caption>Produit</caption>
+        <thead>
+          <tr>
+            <th>Du {this.props.dateDeb}</th>
+            <th>Au {this.props.dateFin}</th>
+            <th>Ventes cumulées</th>
+          </tr>
+        </thead>
+        <tbody />
+      </table>
+    );
+  }
+}

@@ -27,6 +27,7 @@ export default class Analyse extends Component {
       selectProd: '',
       loading: false,
       showTab: false,
+      rerender: false,
     });
   };
 
@@ -41,6 +42,7 @@ export default class Analyse extends Component {
       {
         loading: !this.state.loading,
         showTab: false,
+        rerender: !this.state.rerender,
       },
       () => {
         setTimeout(() => {
@@ -143,6 +145,7 @@ export default class Analyse extends Component {
           <AnalyseTab
             dateDeb={this.state.dateDebut}
             dateFin={this.state.dateFin}
+            rerender={this.state.rerender}
           />
         ) : null}
       </Fragment>
