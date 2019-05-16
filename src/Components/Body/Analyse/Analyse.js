@@ -67,6 +67,7 @@ export default class Analyse extends Component {
               type="date"
               id="deb"
               name="dateDebut"
+              className="dateStyle"
               value={this.state.dateDebut}
               min="2018-01-01"
               max={this.state.dateJour}
@@ -83,6 +84,7 @@ export default class Analyse extends Component {
               type="date"
               id="fin"
               name="dateFin"
+              className="dateStyle"
               value={this.state.dateFin}
               min="2018-01-01"
               max={this.state.dateJour}
