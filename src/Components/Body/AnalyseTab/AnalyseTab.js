@@ -12,7 +12,7 @@ export default class AnalyseTab extends Component {
 
   render() {
     return (
-      <table>
+      <table className="centerTab">
         <caption>Produit</caption>
         <thead>
           <tr>

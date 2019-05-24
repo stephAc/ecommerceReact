@@ -59,90 +59,101 @@ export default class Analyse extends Component {
     return (
       <Fragment>
         <Header />
+
         <div className="analysePageStyle">
-          <label htmlFor="deb">
-            Début :
-            <br />
-            <input
-              type="date"
-              id="deb"
-              name="dateDebut"
-              className="dateStyle"
-              value={this.state.dateDebut}
-              min="2018-01-01"
-              max={this.state.dateJour}
-              onChange={this.handleInput}
-            />
-          </label>
+          <div className="childFlexDisplay">
+            <label htmlFor="deb" style={{ marginRight: 30 }}>
+              Début :
+              <br />
+              <input
+                type="date"
+                id="deb"
+                name="dateDebut"
+                className="dateStyle"
+                value={this.state.dateDebut}
+                min="2018-01-01"
+                max={this.state.dateJour}
+                onChange={this.handleInput}
+              />
+            </label>
 
-          <br />
-
-          <label htmlFor="fin">
-            Fin :
-            <br />
-            <input
-              type="date"
-              id="fin"
-              name="dateFin"
-              className="dateStyle"
-              value={this.state.dateFin}
-              min="2018-01-01"
-              max={this.state.dateJour}
-              onChange={this.handleInput}
-            />
-          </label>
-
-          <br />
-
-          <label htmlFor="produit">
-            Produit :
-            <br />
-            <select
-              id="produit"
-              name="selectProd"
-              value={this.state.selectProd}
-              onChange={this.handleInput}
-            />
-          </label>
-
-          <br />
-
-          <label htmlFor="categorie">
-            Secteur :
-            <br />
-            <select
-              id="categorie"
-              name="selectCate"
-              value={this.state.selectCate}
-              onChange={this.handleInput}
-            >
-              <option value="Produits de santé">Produits de santé</option>
-              <option value="Produits de vie">Produits de vie</option>
-            </select>
-          </label>
-
-          <br />
-
-          <div>
-            <input
-              type="radio"
-              value="mois"
-              defaultChecked
-              name="grouper"
-              onChange={this.handleInput}
-            />{' '}
-            Mois
-            <input
-              type="radio"
-              value="semaine"
-              name="grouper"
-              onChange={this.handleInput}
-            />{' '}
-            Semaine
+            <label htmlFor="fin">
+              Fin :
+              <br />
+              <input
+                type="date"
+                id="fin"
+                name="dateFin"
+                className="dateStyle"
+                value={this.state.dateFin}
+                min="2018-01-01"
+                max={this.state.dateJour}
+                onChange={this.handleInput}
+              />
+            </label>
           </div>
-          <button onClick={this.handleAnalyseSearch}>Rechercher</button>
+
+          <div className="childFlexDisplay">
+            <label htmlFor="produit">
+              Produit :
+              <br />
+              <select
+                id="produit"
+                name="selectProd"
+                className="selectStyle"
+                value={this.state.selectProd}
+                onChange={this.handleInput}
+              />
+            </label>
+
+            <br />
+
+            <label htmlFor="categorie">
+              Secteur :
+              <br />
+              <select
+                id="categorie"
+                name="selectCate"
+                className="selectStyle"
+                value={this.state.selectCate}
+                onChange={this.handleInput}
+              >
+                <option value="Produits de santé">Produits de santé</option>
+                <option value="Produits de vie">Produits de vie</option>
+              </select>
+            </label>
+
+            <div>
+              <input
+                type="radio"
+                value="mois"
+                defaultChecked
+                name="grouper"
+                onChange={this.handleInput}
+              />
+              Mois
+              <input
+                type="radio"
+                value="semaine"
+                name="grouper"
+                onChange={this.handleInput}
+              />
+              Semaine
+            </div>
+          </div>
+          <button
+            style={{ alignSelf: 'center' }}
+            onClick={this.handleAnalyseSearch}
+          >
+            Rechercher
+          </button>
         </div>
-        {this.state.loading ? <Spinner /> : null}
+
+        {this.state.loading ? (
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Spinner />
+          </div>
+        ) : null}
         {this.state.showTab ? (
           <AnalyseTab
             dateDeb={this.state.dateDebut}

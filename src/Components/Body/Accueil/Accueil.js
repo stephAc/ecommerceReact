@@ -2,11 +2,51 @@ import React, { Component, Fragment } from 'react';
 import './Accueil.css';
 import ListeProduit from '../ListeProduit/ListeProduit';
 import Header from '../../Navigation/Header/Header';
+// import axios from 'axios';
 
 export default class Accueil extends Component {
   state = {
     selectCategorie: 'Catégories',
   };
+
+  componentDidMount() {
+    console.log('avant axios');
+    // axios
+    //   .get('http://mercury.iut-orsay.fr:5000/article')
+    //   .then(res => {
+    //     console.log('aprrès axios');
+    //     console.log('res : ' + res);
+    //     console.log('res data : ' + res.data);
+    //   })
+    //   .catch(error => {
+    //     if (error.response) {
+    //       console.log(error.response.headers);
+    //     } else if (error.request) {
+    //       console.log(error.request);
+    //     } else {
+    //       console.log(error.message);
+    //     }
+    //     console.log(error.config);
+    //   });
+
+    // {
+    //   mode: 'no-cors',
+    //     headers: {
+    //     // 'Access-Control-Allow-Origin': '*',
+    //     Accept: 'application/json',
+    //     // 'Content-Type': 'application/json',
+    //   },
+    // }
+
+    fetch('http://mercury.iut-orsay.fr:5000/article')
+      .then(result => result.json())
+      .then(result => {
+        console.log(result); //test data,
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   handleSelect = event => {
     this.setState({ selectCategorie: event.target.value });

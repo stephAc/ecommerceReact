@@ -12,3 +12,8 @@ table {
 caption {
   font-style: italic;
 }
+
+.centerTab {
+  margin-left: auto;
+  margin-right: auto;
+}

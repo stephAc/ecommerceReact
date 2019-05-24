@@ -1,27 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import CardProduit from '../CardProduit/CardProduit';
 import './ListeProduit.css';
 
-const ListeProduit = () => {
-  return (
-    <div className="listProd">
-      <CardProduit />
-      <CardProduit />
-      <CardProduit />
-      <CardProduit />
-      <CardProduit />
-      <CardProduit />
-      <CardProduit />
-      <CardProduit />
-      <CardProduit />
-      <CardProduit />
-      <CardProduit />
-      <CardProduit />
-      <CardProduit />
-      <CardProduit />
-      <CardProduit />
-    </div>
-  );
-};
-
-export default ListeProduit;
+export default class ListeProduit extends Component {
+  render() {
+    return (
+      <div className="listProd">
+        <CardProduit />
+        <CardProduit />
+        <CardProduit />
+        <CardProduit />
+        <CardProduit />
+        <CardProduit />
+        <CardProduit />
+        <CardProduit />
+        <CardProduit />
+        <CardProduit />
+        <CardProduit />
+        <CardProduit />
+        <CardProduit />
+        <CardProduit />
+        <CardProduit />
+      </div>
+    );
+  }
+}
