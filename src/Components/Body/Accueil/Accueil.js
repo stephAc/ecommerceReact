@@ -2,46 +2,21 @@ import React, { Component, Fragment } from 'react';
 import './Accueil.css';
 import ListeProduit from '../ListeProduit/ListeProduit';
 import Header from '../../Navigation/Header/Header';
-// import axios from 'axios';
 
 export default class Accueil extends Component {
   state = {
     selectCategorie: 'Catégories',
+    articles: [],
   };
 
   componentDidMount() {
-    console.log('avant axios');
-    // axios
-    //   .get('http://mercury.iut-orsay.fr:5000/article')
-    //   .then(res => {
-    //     console.log('aprrès axios');
-    //     console.log('res : ' + res);
-    //     console.log('res data : ' + res.data);
-    //   })
-    //   .catch(error => {
-    //     if (error.response) {
-    //       console.log(error.response.headers);
-    //     } else if (error.request) {
-    //       console.log(error.request);
-    //     } else {
-    //       console.log(error.message);
-    //     }
-    //     console.log(error.config);
-    //   });
-
-    // {
-    //   mode: 'no-cors',
-    //     headers: {
-    //     // 'Access-Control-Allow-Origin': '*',
-    //     Accept: 'application/json',
-    //     // 'Content-Type': 'application/json',
-    //   },
-    // }
-
     fetch('http://mercury.iut-orsay.fr:5000/article')
       .then(result => result.json())
-      .then(result => {
-        console.log(result); //test data,
+      .then(articles => {
+        this.setState(
+          () => ({ articles }),
+          // () => console.log('articles : ', this.state.articles),
+        );
       })
       .catch(err => {
         console.log(err);
@@ -71,7 +46,7 @@ export default class Accueil extends Component {
         </div>
         <div style={{ marginBottom: 15 }}>
           <h1 style={{ marginLeft: 10 }}>Produits</h1>
-          <ListeProduit />
+          <ListeProduit articles={this.state.articles} />
         </div>
       </Fragment>
     );

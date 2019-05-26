@@ -6,8 +6,8 @@ export default class FicheProduit extends Component {
     return (
       <div className="ficheProduit">
         <div className="prodDetail">
-          <p>Name</p>
-          <p>prix</p>
+          <p>{this.props.article.articlelibelle}</p>
+          <p>{this.props.article.prix}€</p>
         </div>
 
         <div className="btnProduit">
