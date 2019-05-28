@@ -15,7 +15,7 @@ export default class Accueil extends Component {
       .then(articles => {
         this.setState(
           () => ({ articles }),
-          // () => console.log('articles : ', this.state.articles),
+          () => console.log('articles : ', this.state.articles),
         );
       })
       .catch(err => {

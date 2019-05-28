@@ -11,7 +11,9 @@ export default class FicheProduit extends Component {
         </div>
 
         <div className="btnProduit">
-          <Link to="/detail">
+          <Link
+            to={{ pathname: '/detail', state: { article: this.props.article } }}
+          >
             <button style={{ width: '100px' }}>Voir produit</button>
           </Link>
           <button style={{ width: '100px' }}>Ajouter</button>

@@ -1,0 +1,13 @@
+.compteurBtn {
+  width: fit-content !important;
+  background-color: inherit;
+  border: none;
+}
+
+.compteurDisplay {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
