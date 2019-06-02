@@ -2,8 +2,9 @@ import React, { Component, Fragment } from 'react';
 import './Accueil.css';
 import ListeProduit from '../ListeProduit/ListeProduit';
 import Header from '../../Navigation/Header/Header';
+import { connect } from 'react-redux';
 
-export default class Accueil extends Component {
+class Accueil extends Component {
   state = {
     selectCategorie: 'Catégories',
     articles: [],
@@ -52,3 +53,10 @@ export default class Accueil extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  console.log(state.shoppingCart.shoppingCart);
+  return { shoppingCart: state.shoppingCart };
+};
+
+export default connect(mapStateToProps)(Accueil);
