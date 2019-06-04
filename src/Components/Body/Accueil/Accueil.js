@@ -3,7 +3,6 @@ import './Accueil.css';
 import ListeProduit from '../ListeProduit/ListeProduit';
 import Header from '../../Navigation/Header/Header';
 import { connect } from 'react-redux';
-
 class Accueil extends Component {
   state = {
     selectCategorie: 'Catégories',
@@ -14,10 +13,7 @@ class Accueil extends Component {
     fetch('http://mercury.iut-orsay.fr:5000/article')
       .then(result => result.json())
       .then(articles => {
-        this.setState(
-          () => ({ articles }),
-          () => console.log('articles : ', this.state.articles),
-        );
+        this.setState(() => ({ articles }));
       })
       .catch(err => {
         console.log(err);
@@ -55,7 +51,7 @@ class Accueil extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.shoppingCart.shoppingCart);
+  console.log(state.shoppingCart);
   return { shoppingCart: state.shoppingCart };
 };
 

@@ -15,9 +15,9 @@ export default class DetailProduit extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
 
-    // const { article } = this.props.location.state;
-    // console.log(article);
-    // this.setState(() => ({ article }));
+    const { article } = this.props.location.state;
+    console.log(article);
+    this.setState(() => ({ article }));
   }
 
   addQte = () => {
@@ -57,25 +57,28 @@ export default class DetailProduit extends Component {
             </div>
             <button className="btnAjouter">Ajouter</button>
           </div>
-          <div className="detailFlex descriptionDetail">
-            <h2>Descritption</h2>
-            <p>{this.state.article.description}</p>
-
-            <h2>Commentaires</h2>
-            {!!this.state.com.length ? (
-              <div className="listCom">
-                <Comment idkey="1" idBtn="9" />
-                <Comment idkey="2" idBtn="10" />
-                <Comment idkey="3" idBtn="11" />
-                <Comment idkey="4" idBtn="12" />
-                <Comment idkey="5" idBtn="13" />
-                <Comment idkey="6" idBtn="14" />
-                <Comment idkey="7" idBtn="15" />
-                <Comment idkey="8" idBtn="16" />
-              </div>
-            ) : (
-              <p>Aucun commentaire</p>
-            )}
+          <div className="detailFlex">
+            <div>
+              <h2>Descritption</h2>
+              <p>{this.state.article.description}</p>
+            </div>
+            <div>
+              <h2>Commentaires</h2>
+              {!!this.state.com.length ? (
+                <div className="listCom">
+                  <Comment idkey="1" idBtn="9" />
+                  <Comment idkey="2" idBtn="10" />
+                  <Comment idkey="3" idBtn="11" />
+                  <Comment idkey="4" idBtn="12" />
+                  <Comment idkey="5" idBtn="13" />
+                  <Comment idkey="6" idBtn="14" />
+                  <Comment idkey="7" idBtn="15" />
+                  <Comment idkey="8" idBtn="16" />
+                </div>
+              ) : (
+                <p>Aucun commentaire</p>
+              )}
+            </div>
           </div>
         </div>
       </Fragment>
