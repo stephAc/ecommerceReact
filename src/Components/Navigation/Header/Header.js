@@ -7,5 +7,8 @@ export default () => (
     <Link to="/accueil">
       <span>Mercury</span>
     </Link>
+    <Link to="/panier">
+      <button>panier</button>
+    </Link>
   </header>
 );

@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import './CardProduitPanier.css';
 import img from '../../../assets/img/backgroundHomePage/dawn-3793717_640.jpg';
+import Compteur from '../Compteur/Compteur';
 
 export default class FicheProduit extends Component {
   state = {
-    qteProd: 1,
+    qte: this.props.article.articleQte,
   };
 
-  handleQte = event => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
+  addQte = () => {
+    this.setState({ qte: this.state.qte + 1 });
+  };
+
+  diminueQte = () => {
+    if (this.state.qte > 1) {
+      this.setState({ qte: this.state.qte - 1 });
+    }
   };
 
   render() {
@@ -24,26 +29,26 @@ export default class FicheProduit extends Component {
           style={{ marginRight: 15 }}
         />
         <div className="produitPanier">
-          <p style={{ wordWrap: 'anywhere' }}>NameNameNameNameNameName</p>
-          <p
+          <p style={{ wordWrap: 'anywhere' }}>
+            {this.props.article.article.articlelibelle}
+          </p>
+          <p>Prix : {this.props.article.article.prix}€/u</p>
+          <div
             style={{
               display: 'flex',
               flexDirection: 'row',
               justifyContent: 'space-between',
+              alignItems: 'center',
+              flexWrap: 'nowrap',
             }}
           >
-            Quantité :
-            <input
-              type="number"
-              name="qteProd"
-              step="1"
-              min="0"
-              max="100"
-              value={this.state.qteProd}
-              onChange={this.handleQte}
-              className="inputPanier"
+            <p>Quantité :</p>
+            <Compteur
+              qte={this.state.qte}
+              add={this.addQte}
+              diminue={this.diminueQte}
             />
-          </p>
+          </div>
           <button className="btnStylePanier">Supprimer</button>
         </div>
       </div>

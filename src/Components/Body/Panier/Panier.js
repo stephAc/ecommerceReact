@@ -3,11 +3,22 @@ import CardProduitPanier from '../CardProduitPanier/CardProduitPanier';
 import Header from '../../Navigation/Header/Header';
 import './Panier.css';
 import Footer from '../../Footer/Footer';
+import { connect } from 'react-redux';
 
-export default class Panier extends Component {
+class Panier extends Component {
   handleCommande = () => {
     console.log('commande');
   };
+
+  renderCartList() {
+    if (!!this.props.shoppingCart.length) {
+      return this.props.shoppingCart.map((objet, key) => {
+        return <CardProduitPanier key={key} article={objet} />;
+      });
+    } else {
+      return <div style={{ textAlign: 'center' }}>Aucun articles trouvé</div>;
+    }
+  }
 
   render() {
     return (
@@ -24,25 +35,16 @@ export default class Panier extends Component {
               Commander
             </button>
           </div>
-          <div className="flexCommande">
-            <CardProduitPanier />
-            <CardProduitPanier />
-            <CardProduitPanier />
-            <CardProduitPanier />
-            <CardProduitPanier />
-            <CardProduitPanier />
-            <CardProduitPanier />
-            <CardProduitPanier />
-            <CardProduitPanier />
-            <CardProduitPanier />
-            <CardProduitPanier />
-            <CardProduitPanier />
-            <CardProduitPanier />
-            <CardProduitPanier />
-          </div>
+
+          <div className="flexCommande">{this.renderCartList()}</div>
         </div>
-        <Footer />
       </Fragment>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return { shoppingCart: state.shoppingCart.shoppingCart };
+};
+
+export default connect(mapStateToProps)(Panier);
