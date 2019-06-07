@@ -12,7 +12,7 @@ const shoppingCartReducer = (state = initialState, action) => {
         );
         if (articleIndex !== -1) {
           let tmpShoppingCart = [...state.shoppingCart];
-          tmpShoppingCart[articleIndex].articleQte++;
+          tmpShoppingCart[articleIndex].articleQte += action.item.articleQte;
           return { ...state, shoppingCart: tmpShoppingCart };
         } else {
           return {
@@ -31,6 +31,23 @@ const shoppingCartReducer = (state = initialState, action) => {
             object.article.article_id !== action.item.article.article_id,
         ),
       };
+    case 'ADD_QTE_ARTICLE':
+      let tmpAddShoppingCart = [...state.shoppingCart];
+      tmpAddShoppingCart[
+        state.shoppingCart.findIndex(
+          obj => obj.article.article_id === action.item.article.article_id,
+        )
+      ].articleQte++;
+      return { ...state, shoppingCart: tmpAddShoppingCart };
+
+    case 'DIMINUE_QTE_ARTICLE':
+      let tmpDiminueShoppingCart = [...state.shoppingCart];
+      tmpDiminueShoppingCart[
+        state.shoppingCart.findIndex(
+          obj => obj.article.article_id === action.item.article.article_id,
+        )
+      ].articleQte--;
+      return { ...state, shoppingCart: tmpDiminueShoppingCart };
     default:
       return state;
   }

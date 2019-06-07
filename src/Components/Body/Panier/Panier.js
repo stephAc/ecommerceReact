@@ -15,7 +15,7 @@ class Panier extends Component {
         return <CardProduitPanier key={key} article={objet} />;
       });
     } else {
-      return <div style={{ textAlign: 'center' }}>Aucun articles trouvé</div>;
+      return <div style={{ textAlign: 'center' }}>Aucun articles</div>;
     }
   }
 

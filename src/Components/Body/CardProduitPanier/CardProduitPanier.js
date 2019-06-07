@@ -3,19 +3,21 @@ import './CardProduitPanier.css';
 import img from '../../../assets/img/backgroundHomePage/dawn-3793717_640.jpg';
 import Compteur from '../Compteur/Compteur';
 import { connect } from 'react-redux';
-import { deleteFromCart } from '../../../actions';
+import {
+  deleteFromCart,
+  addQteArticle,
+  diminueQteArticle,
+} from '../../../actions';
 class CardProduitPanier extends Component {
-  state = {
-    qte: this.props.article.articleQte,
-  };
+  state = {};
 
   addQte = () => {
-    this.setState({ qte: this.state.qte + 1 });
+    this.props.addQteArticle(this.props.article.article);
   };
 
   diminueQte = () => {
-    if (this.state.qte > 1) {
-      this.setState({ qte: this.state.qte - 1 });
+    if (this.props.article.articleQte > 1) {
+      this.props.diminueQteArticle(this.props.article.article);
     }
   };
 
@@ -45,7 +47,7 @@ class CardProduitPanier extends Component {
           >
             <p>Quantité :</p>
             <Compteur
-              qte={this.state.qte}
+              qte={this.props.article.articleQte}
               add={this.addQte}
               diminue={this.diminueQte}
             />
@@ -70,5 +72,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { deleteFromCart },
+  { deleteFromCart, addQteArticle, diminueQteArticle },
 )(CardProduitPanier);

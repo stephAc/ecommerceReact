@@ -4,8 +4,10 @@ import Header from '../../Navigation/Header/Header';
 import img from '../../../assets/img/backgroundHomePage/dawn-3793717_640.jpg';
 import Comment from '../Comment/Comment';
 import Compteur from '../Compteur/Compteur';
+import { connect } from 'react-redux';
+import { addToCart } from '../../../actions';
 
-export default class DetailProduit extends Component {
+class DetailProduit extends Component {
   state = {
     qte: 1,
     article: {},
@@ -38,7 +40,16 @@ export default class DetailProduit extends Component {
           <div className="detailFlex" id="itemDetailOne">
             <h2>{this.state.article.articlelibelle}</h2>
             <img src={img} alt="Produit" width="80%" />
-            <p>Prix : {this.state.article.prix} €</p>
+            <p
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                flexWrap: 'nowrap',
+              }}
+            >
+              <span>Prix : </span> <span>{this.state.article.prix} €</span>
+            </p>
             <div
               style={{
                 display: 'flex',
@@ -55,7 +66,15 @@ export default class DetailProduit extends Component {
                 diminue={this.diminueQte}
               />
             </div>
-            <button className="btnAjouter">Ajouter</button>
+            <button
+              onClick={() => {
+                this.props.addToCart(this.state.article, this.state.qte);
+                this.setState({ qte: 1 });
+              }}
+              className="btnAjouter"
+            >
+              Ajouter
+            </button>
           </div>
           <div className="detailFlex">
             <div>
@@ -85,3 +104,12 @@ export default class DetailProduit extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return state;
+};
+
+export default connect(
+  mapStateToProps,
+  { addToCart },
+)(DetailProduit);

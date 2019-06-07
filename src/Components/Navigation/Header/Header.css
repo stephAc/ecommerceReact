@@ -6,3 +6,16 @@
   box-shadow: 0 2px 5px;
   position: fixed;
 }
+
+.flexDisplayNav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navBtn {
+  height: 100%;
+  margin: 0px;
+  background-color: inherit;
+  border: none;
+  font-size: 20px;
+}
