@@ -10,12 +10,16 @@ const shoppingCartReducer = (state = initialState, action) => {
         obj => obj.article.article_id === action.item.article.article_id,
       );
       if (articleIndex !== -1) {
-        state.shoppingCart[articleIndex].articleQte++;
+        let tmpShoppingCart = [...state.shoppingCart];
+        tmpShoppingCart[articleIndex].articleQte++;
+        return { ...state, shoppingCart: tmpShoppingCart };
+        // state.shoppingCart[articleIndex].articleQte++;
+        // return state;
       } else {
-        return { shoppingCart: [...state.shoppingCart, action.item] };
+        return { ...state, shoppingCart: [...state.shoppingCart, action.item] };
       }
     } else {
-      return { shoppingCart: [...state.shoppingCart, action.item] };
+      return { ...state, shoppingCart: [...state.shoppingCart, action.item] };
     }
   }
   return state;
