@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import CardProduitPanier from '../CardProduitPanier/CardProduitPanier';
 import Header from '../../Navigation/Header/Header';
 import './Panier.css';
-import Footer from '../../Footer/Footer';
 import { connect } from 'react-redux';
 
 class Panier extends Component {
@@ -44,6 +43,7 @@ class Panier extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state.shoppingCart.shoppingCart);
   return { shoppingCart: state.shoppingCart.shoppingCart };
 };
 

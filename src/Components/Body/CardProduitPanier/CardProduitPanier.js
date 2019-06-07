@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './CardProduitPanier.css';
 import img from '../../../assets/img/backgroundHomePage/dawn-3793717_640.jpg';
 import Compteur from '../Compteur/Compteur';
-
-export default class FicheProduit extends Component {
+import { connect } from 'react-redux';
+import { deleteFromCart } from '../../../actions';
+class CardProduitPanier extends Component {
   state = {
     qte: this.props.article.articleQte,
   };
@@ -49,9 +50,25 @@ export default class FicheProduit extends Component {
               diminue={this.diminueQte}
             />
           </div>
-          <button className="btnStylePanier">Supprimer</button>
+          <button
+            className="btnStylePanier"
+            onClick={() => {
+              this.props.deleteFromCart(this.props.article.article);
+            }}
+          >
+            Supprimer
+          </button>
         </div>
       </div>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return { shoppingCart: state.shoppingCart };
+};
+
+export default connect(
+  mapStateToProps,
+  { deleteFromCart },
+)(CardProduitPanier);

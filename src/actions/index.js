@@ -7,3 +7,12 @@ export const addToCart = (article, articleQte) => {
     },
   };
 };
+
+export const deleteFromCart = article => {
+  return {
+    type: 'DELETE_ARTICLE',
+    item: {
+      article,
+    },
+  };
+};

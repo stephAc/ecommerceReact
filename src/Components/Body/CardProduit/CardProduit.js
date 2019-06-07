@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './CardProduit.css';
 import { connect } from 'react-redux';
 import { addToCart } from '../../../actions';
-class FicheProduit extends Component {
+class CardProduit extends Component {
   render() {
     return (
       <div className="ficheProduit">
@@ -39,4 +39,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { addToCart },
-)(FicheProduit);
+)(CardProduit);
