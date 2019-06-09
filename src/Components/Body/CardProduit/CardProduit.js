@@ -11,7 +11,6 @@ class CardProduit extends Component {
           <p>{this.props.article.articlelibelle}</p>
           <p>{this.props.article.prix}€</p>
         </div>
-
         <div className="btnProduit">
           <Link
             to={{ pathname: '/detail', state: { article: this.props.article } }}

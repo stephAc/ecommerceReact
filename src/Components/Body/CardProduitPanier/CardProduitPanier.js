@@ -21,6 +21,12 @@ class CardProduitPanier extends Component {
     }
   };
 
+  calcTotal = () => {
+    return (
+      this.props.article.articleQte * this.props.article.article.prix
+    ).toFixed(2);
+  };
+
   render() {
     return (
       <div className="ficheProduitPanier">
@@ -36,6 +42,7 @@ class CardProduitPanier extends Component {
             {this.props.article.article.articlelibelle}
           </p>
           <p>Prix : {this.props.article.article.prix}€/u</p>
+          <p>Total : {this.calcTotal()}€</p>
           <div
             style={{
               display: 'flex',

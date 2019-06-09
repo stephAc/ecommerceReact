@@ -19,3 +19,19 @@
   border: none;
   font-size: 20px;
 }
+
+.badge {
+  background: rgba(250, 0, 0, 0.6);
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  color: white;
+  font-size: 15px !important;
+  margin: 0;
+  border-radius: 50%;
+  position: relative;
+  top: 11px;
+  right: 5px;
+  padding: 5px;
+}

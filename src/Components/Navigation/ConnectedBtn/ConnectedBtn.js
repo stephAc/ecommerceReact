@@ -12,9 +12,15 @@ const ConnectedBtn = () => {
         <i className="fa fa-caret-down" />
       </button>
       <div className="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+        <span>
+          Panier <i className="iconPosition fas fa-cart-arrow-down" />
+        </span>
+        <span>
+          Commandes <i className="iconPosition fas fa-clipboard-list" />
+        </span>
+        <span>
+          Quitter <i className="iconPosition fas fa-sign-out-alt" />
+        </span>
       </div>
     </div>
   );
