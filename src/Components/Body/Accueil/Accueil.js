@@ -78,7 +78,13 @@ class Accueil extends Component {
           <button onClick={this.cateSearch}>Search</button>
         </div>
         <div style={{ marginBottom: 15 }}>
-          <h1 style={{ marginLeft: 10 }}>Produits</h1>
+          <div className="flexRowDisplay">
+            <h1 style={{ marginLeft: 10 }}>Produits</h1>
+            <button style={{ minWidth: 115 }}>
+              Filtrer <i style={{ float: 'right' }} class="fas fa-sort" />
+            </button>
+          </div>
+
           <ListeProduit articles={this.state.articles} />
         </div>
       </Fragment>

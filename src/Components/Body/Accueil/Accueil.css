@@ -16,3 +16,10 @@
   border: 1px solid #27ae60;
   background: white;
 }
+
+.flexRowDisplay {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

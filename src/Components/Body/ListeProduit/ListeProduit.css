@@ -1,5 +1,8 @@
 .listProd {
   display: grid;
+  max-width: 1900px;
+  margin-right: auto;
+  margin-left: auto;
   grid-template-columns: repeat(6, 1fr);
   justify-items: center;
   align-items: center;
