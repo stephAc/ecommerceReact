@@ -1,25 +1,31 @@
-.searchAcc {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  height: 70px;
-  width: 100%;
-  background-color: antiquewhite;
-}
-
-.selectAcc {
-  width: 180px;
-  height: 30px;
-  margin: 5px;
-  border: 1px solid #27ae60;
-  background: white;
-}
-
 .flexRowDisplay {
+  margin-top: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.transitionHide {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  animation: fade 1s;
+}
+
+.transitionShow {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  animation: fade 1s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

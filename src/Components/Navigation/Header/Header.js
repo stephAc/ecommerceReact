@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import logoImg from '../../../assets/img/logo.jpg';
 import LogBtn from '../ConnectedBtn/ConnectedBtn';
 import { connect } from 'react-redux';
-
+import SearchBar from '../SearchBar/SearchBar';
 class Header extends Component {
   render() {
     const cartLength = this.props.shoppingCart.shoppingCart.length;
@@ -13,6 +13,7 @@ class Header extends Component {
         <Link to="/accueil">
           <img alt="logo" src={logoImg} style={{ height: 50 }} />
         </Link>
+        <SearchBar />
         <div className="flexDisplayNav">
           <Link to="/connexion">
             <button className="navBtn">Se connecter</button>

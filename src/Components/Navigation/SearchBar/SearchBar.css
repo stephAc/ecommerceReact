@@ -1,0 +1,19 @@
+.inputSearch {
+  padding: 6px;
+  font-size: 17px;
+  border: none;
+  transition: all 0.7s ease 0s;
+}
+
+.inputSearch:focus {
+  padding-left: 100px;
+}
+
+.search-container button {
+  height: 50px;
+  width: 50px;
+  margin: 0px;
+  background-color: inherit;
+  border: none;
+  font-size: 20px;
+}

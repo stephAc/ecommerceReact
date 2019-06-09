@@ -3,11 +3,14 @@ import './Accueil.css';
 import ListeProduit from '../ListeProduit/ListeProduit';
 import Header from '../../Navigation/Header/Header';
 import { connect } from 'react-redux';
+import Filter from '../Filter/Filter';
+
 class Accueil extends Component {
   state = {
     categorie: 'Catégories',
     selectCategorie: 'Catégories',
     articles: [],
+    filtre: false,
   };
 
   componentDidMount() {
@@ -23,21 +26,15 @@ class Accueil extends Component {
   }
 
   cateSearch = () => {
-    console.log(
-      `http://mercury.iut-orsay.fr:5000/article/secteur/${
-        this.state.selectCategorie
-      }`,
-    );
     if (this.state.selectCategorie !== 'Catégories') {
       fetch(
-        `http://mercury.iut-orsay.fr:5000/secteur/${
+        `http://mercury.iut-orsay.fr:5000/article/secteur/${
           this.state.selectCategorie
         }`,
       )
         .then(result => result.json())
         .then(articles => {
-          console.log(articles);
-          //this.setState(() => ({ articles }));
+          this.setState(() => ({ articles, filtre: false }));
         })
         .catch(err => {
           console.log(err);
@@ -62,27 +59,32 @@ class Accueil extends Component {
   };
 
   render() {
+    const showHideFilter = this.state.filtre
+      ? 'transitionShow'
+      : 'transitionHide';
+
     return (
       <Fragment>
         <Header />
-        <div className="searchAcc">
-          <select
-            className="selectAcc"
-            value={this.state.categorie}
-            onChange={this.handleSelect}
-          >
-            <option value="Catégories">Catégories</option>
-            <option value="Produits de vie">Produits de vie</option>
-            <option value="Produits de santé">Produits de santé</option>
-          </select>
-          <button onClick={this.cateSearch}>Search</button>
-        </div>
+
         <div style={{ marginBottom: 15 }}>
           <div className="flexRowDisplay">
             <h1 style={{ marginLeft: 10 }}>Produits</h1>
-            <button style={{ minWidth: 115 }}>
-              Filtrer <i style={{ float: 'right' }} class="fas fa-sort" />
+            <button
+              onClick={() => {
+                this.setState({ filtre: true });
+              }}
+              style={{ minWidth: 115 }}
+            >
+              Filtrer <i style={{ float: 'right' }} className="fas fa-filter" />
             </button>
+          </div>
+          <div className={`${showHideFilter}`}>
+            <Filter
+              categorie={this.state.categorie}
+              handleSelect={this.handleSelect}
+              cateSearch={this.cateSearch}
+            />
           </div>
 
           <ListeProduit articles={this.state.articles} />
