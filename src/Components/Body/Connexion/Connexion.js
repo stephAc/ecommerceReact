@@ -17,8 +17,20 @@ export default class Connexion extends Component {
     });
   };
 
-  handleSubmit = () => {
-    console.log('Sub');
+  handleSubmit = event => {
+    event.preventDefault();
+
+    fetch('', {
+      method: 'POST',
+      headers: new Headers(),
+      body: JSON.stringify({
+        login: this.state.loginUser,
+        mdp: this.state.pwdUser,
+      }),
+    })
+      .then(result => result.json())
+      .then(connexion => console.log(connexion))
+      .catch(err => console.log(err));
   };
 
   render() {

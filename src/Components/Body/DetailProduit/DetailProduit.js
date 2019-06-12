@@ -41,7 +41,7 @@ class DetailProduit extends Component {
         <div className="gridDetail">
           <div className="detailFlex" id="itemDetailOne">
             <h2>{this.state.article.articlelibelle}</h2>
-            <img src={img} alt="Produit" width="80%" />
+            <img src={img} alt="Produit" width="100%" />
             <p
               style={{
                 display: 'flex',

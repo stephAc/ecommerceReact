@@ -2,11 +2,12 @@
   padding: 6px;
   font-size: 17px;
   border: none;
+  width: 200px;
   transition: all 0.7s ease 0s;
 }
 
 .inputSearch:focus {
-  padding-left: 100px;
+  width: 80%;
 }
 
 .search-container button {
@@ -16,4 +17,10 @@
   background-color: inherit;
   border: none;
   font-size: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .inputSearch:focus {
+    width: 200px;
+  }
 }

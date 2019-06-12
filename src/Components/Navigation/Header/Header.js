@@ -18,10 +18,13 @@ class Header extends Component {
           <Link to="/connexion">
             <button className="navBtn">Se connecter</button>
           </Link>
+
           <Link to="/panier">
             <button className="navBtn">
               Panier <i className="fas fa-cart-arrow-down" />
-              {cartLength !== 0 ? <div class="badge">{cartLength}</div> : null}
+              {cartLength !== 0 ? (
+                <div className="badge">{cartLength}</div>
+              ) : null}
             </button>
           </Link>
           <LogBtn />

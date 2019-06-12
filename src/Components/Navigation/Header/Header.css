@@ -9,7 +9,6 @@
 
 .flexDisplayNav {
   display: flex;
-  justify-content: space-between;
 }
 
 .navBtn {

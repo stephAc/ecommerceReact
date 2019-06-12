@@ -72,7 +72,7 @@ class Accueil extends Component {
             <h1 style={{ marginLeft: 10 }}>Produits</h1>
             <button
               onClick={() => {
-                this.setState({ filtre: true });
+                this.setState({ filtre: !this.state.filtre });
               }}
               style={{ minWidth: 115 }}
             >

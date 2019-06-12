@@ -43,3 +43,7 @@
 .iconPosition {
   float: right;
 }
+
+.linkStyle {
+  text-decoration: none;
+}
