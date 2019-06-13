@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './CardProduitPanier.css';
-import img from '../../../assets/img/backgroundHomePage/dawn-3793717_640.jpg';
+import img from '../../../assets/img/imgNotFound.png';
 import Compteur from '../Compteur/Compteur';
 import { connect } from 'react-redux';
 import {
