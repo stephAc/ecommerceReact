@@ -17,7 +17,6 @@ class Accueil extends Component {
     fetch('http://mercury.iut-orsay.fr:5000/article')
       .then(result => result.json())
       .then(articles => {
-        console.log(articles);
         this.setState(() => ({ articles }));
       })
       .catch(err => {
@@ -95,8 +94,8 @@ class Accueil extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.shoppingCart);
-  return { shoppingCart: state.shoppingCart };
+  console.log(state.panier.shoppingCart);
+  return { shoppingCart: state.panier.shoppingCart };
 };
 
 export default connect(mapStateToProps)(Accueil);

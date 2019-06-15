@@ -2,8 +2,10 @@ import React, { Component, Fragment } from 'react';
 import Header from '../../Navigation/Header/Header';
 import { Link } from 'react-router-dom';
 import './Connexion.css';
+import { connect } from 'react-redux';
+import { userLogIn } from '../../../actions/user_action';
 
-export default class Connexion extends Component {
+class Connexion extends Component {
   state = {
     loginUser: '',
     pwdUser: '',
@@ -38,7 +40,10 @@ export default class Connexion extends Component {
       body: jsonFile,
     })
       .then(result => result.json())
-      .then(connexion => console.log(connexion))
+      .then(connexion => {
+        console.log(connexion);
+        this.props.userLogIn(connexion.client_id);
+      })
       .catch(err => console.log(err));
   };
 
@@ -50,7 +55,7 @@ export default class Connexion extends Component {
           <input
             name="loginUser"
             type="text"
-            placeholder="Login"
+            placeholder="Email"
             className="inputLog inputLogStyle"
             onChange={this.handleInput}
           />
@@ -81,3 +86,13 @@ export default class Connexion extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  console.log(state.user);
+  return state;
+};
+
+export default connect(
+  mapStateToProps,
+  { userLogIn },
+)(Connexion);

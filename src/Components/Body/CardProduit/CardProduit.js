@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './CardProduit.css';
 import { connect } from 'react-redux';
-import { addToCart } from '../../../actions';
+import { addToCart } from '../../../actions/panier_action';
 class CardProduit extends Component {
   render() {
     return (
@@ -32,7 +32,7 @@ class CardProduit extends Component {
 }
 
 const mapStateToProps = state => {
-  return { shoppingCart: state.shoppingCart };
+  return { shoppingCart: state.panier.shoppingCart };
 };
 
 export default connect(

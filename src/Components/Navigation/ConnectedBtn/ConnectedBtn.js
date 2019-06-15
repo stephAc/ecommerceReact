@@ -1,8 +1,10 @@
 import React from 'react';
 import './ConnectedBtn.css';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { userLogOut } from '../../../actions/user_action';
 
-const ConnectedBtn = () => {
+const ConnectedBtn = props => {
   return (
     <div className="dropdown">
       <button className="dropbtn">
@@ -20,15 +22,24 @@ const ConnectedBtn = () => {
         </Link>
         <Link className="linkStyle" to="/panier">
           <span>
-            Panier <i className="iconPosition fas fa-cart-arrow-down" />
+            Panier{' '}
+            {props.shoppingCart.length !== 0 ? props.shoppingCart.length : null}
+            <i className="iconPosition fas fa-cart-arrow-down" />
           </span>
         </Link>
         <Link className="linkStyle" to="/">
           <span>
-            Commandes <i className="iconPosition fas fa-clipboard-list" />
+            Commandes
+            <i className="iconPosition fas fa-clipboard-list" />
           </span>
         </Link>
-        <Link className="linkStyle" to="/">
+        <Link
+          className="linkStyle"
+          to="/"
+          onClick={() => {
+            this.props.userLogOut();
+          }}
+        >
           <span>
             Quitter <i className="iconPosition fas fa-sign-out-alt" />
           </span>
@@ -38,4 +49,13 @@ const ConnectedBtn = () => {
   );
 };
 
-export default ConnectedBtn;
+const mapStateToProps = state => {
+  console.log(state.user);
+  console.log('length :', state.panier.shoppingCart.length);
+  return { shoppingCart: state.panier.shoppingCart };
+};
+
+export default connect(
+  mapStateToProps,
+  { userLogOut },
+)(ConnectedBtn);

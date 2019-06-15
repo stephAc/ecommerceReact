@@ -5,7 +5,7 @@ import img from '../../../assets/img/imgNotFound.png';
 import Comment from '../Comment/Comment';
 import Compteur from '../Compteur/Compteur';
 import { connect } from 'react-redux';
-import { addToCart } from '../../../actions';
+import { addToCart } from '../../../actions/panier_action';
 import PopupMsg from '../PopupMsg/PopupMsg';
 class DetailProduit extends Component {
   state = {

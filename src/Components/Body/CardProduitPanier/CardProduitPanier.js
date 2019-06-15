@@ -7,7 +7,7 @@ import {
   deleteFromCart,
   addQteArticle,
   diminueQteArticle,
-} from '../../../actions';
+} from '../../../actions/panier_action';
 class CardProduitPanier extends Component {
   state = {};
 
@@ -74,7 +74,7 @@ class CardProduitPanier extends Component {
 }
 
 const mapStateToProps = state => {
-  return { shoppingCart: state.shoppingCart };
+  return { shoppingCart: state.panier.shoppingCart };
 };
 
 export default connect(

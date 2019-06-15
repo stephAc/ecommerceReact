@@ -43,8 +43,7 @@ class Panier extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.shoppingCart.shoppingCart);
-  return { shoppingCart: state.shoppingCart.shoppingCart };
+  return { shoppingCart: state.panier.shoppingCart };
 };
 
 export default connect(mapStateToProps)(Panier);
