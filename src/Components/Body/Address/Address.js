@@ -29,7 +29,7 @@ export default class Address extends Component {
             <select
               id="ligne1-civilite"
               name="ligne1"
-              className="selectStyle"
+              className="selectStyleReg"
               onChange={this.handleInputChange}
             >
               <option value="">Madame</option>

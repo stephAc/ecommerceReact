@@ -121,7 +121,7 @@ export default class Registration extends Component {
                   <select
                     id="civilite_id"
                     name="civilite_id"
-                    className="selectStyle"
+                    className="selectStyleReg"
                     onChange={this.handleChange}
                   >
                     <option value="">Madame</option>
@@ -136,7 +136,7 @@ export default class Registration extends Component {
                   <select
                     id="sexe_id"
                     name="sexe_id"
-                    className="selectStyle"
+                    className="selectStyleReg"
                     onChange={this.handleChange}
                   >
                     <option value="">Femme</option>
@@ -248,11 +248,7 @@ export default class Registration extends Component {
             </div>
 
             <div className="row align-items-end">
-              <input
-                type="submit"
-                className="inputSubmit inputStyle"
-                value="S'inscrire"
-              />
+              <input type="submit" className="submitInput" value="S'inscrire" />
             </div>
           </form>
         </main>
