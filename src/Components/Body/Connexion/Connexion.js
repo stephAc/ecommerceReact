@@ -20,13 +20,22 @@ export default class Connexion extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    fetch('', {
+    let jsonFile = {
+      email: this.state.loginUser,
+      password: this.state.pwdUser,
+    };
+
+    jsonFile = JSON.stringify(jsonFile);
+
+    console.log(jsonFile);
+
+    fetch('http://mercury.iut-orsay.fr:5000/client/login', {
       method: 'POST',
-      headers: new Headers(),
-      body: JSON.stringify({
-        login: this.state.loginUser,
-        mdp: this.state.pwdUser,
-      }),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: jsonFile,
     })
       .then(result => result.json())
       .then(connexion => console.log(connexion))
