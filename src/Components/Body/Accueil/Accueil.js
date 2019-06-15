@@ -14,7 +14,15 @@ class Accueil extends Component {
   };
 
   componentDidMount() {
-    fetch('http://mercury.iut-orsay.fr:5000/article')
+    //check if url comes from a search
+    let url = new URL(window.location.href);
+    const search = url.searchParams.get('search');
+
+    url = search
+      ? `http://mercury.iut-orsay.fr:5000/article/search/${search}`
+      : 'http://mercury.iut-orsay.fr:5000/article';
+
+    fetch(url)
       .then(result => result.json())
       .then(articles => {
         this.setState(() => ({ articles }));
@@ -94,7 +102,6 @@ class Accueil extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.panier.shoppingCart);
   return { shoppingCart: state.panier.shoppingCart };
 };
 

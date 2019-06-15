@@ -14,7 +14,6 @@ export default class Comment extends Component {
   };
 
   componentDidMount() {
-    console.log();
     if (this.state.contentText.length > SHOW_CHAR) {
       this.cutText(this.props.idkey);
       document.getElementById(this.props.idBtn).style.display = 'block';

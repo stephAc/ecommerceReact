@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 import './Connexion.css';
 import { connect } from 'react-redux';
 import { userLogIn } from '../../../actions/user_action';
+import Banniere from '../Banniere/Banniere';
 
 class Connexion extends Component {
   state = {
     loginUser: '',
     pwdUser: '',
+    wrong: false,
   };
 
   handleInput = event => {
@@ -29,8 +31,6 @@ class Connexion extends Component {
 
     jsonFile = JSON.stringify(jsonFile);
 
-    console.log(jsonFile);
-
     fetch('http://mercury.iut-orsay.fr:5000/client/login', {
       method: 'POST',
       headers: {
@@ -41,45 +41,60 @@ class Connexion extends Component {
     })
       .then(result => result.json())
       .then(connexion => {
-        console.log(connexion);
-        this.props.userLogIn(connexion.client_id);
+        if (connexion.client_id) {
+          this.props.userLogIn(connexion.client_id);
+          this.setState({ wrong: false });
+          window.location.replace('http://localhost:3000/accueil');
+        } else {
+          this.setState({ wrong: true });
+        }
       })
       .catch(err => console.log(err));
   };
 
   render() {
+    const classWrong = this.state.wrong ? 'wrongLog' : '';
+    const hideShow = this.state.wrong ? 'block' : 'none';
     return (
       <Fragment>
         <Header />
-        <div className="loginPanel center">
-          <input
-            name="loginUser"
-            type="text"
-            placeholder="Email"
-            className="inputLog inputLogStyle"
-            onChange={this.handleInput}
+        <div style={{ overflow: 'hidden' }}>
+          <Banniere
+            message="Email ou mot de passe incorrect"
+            color="red"
+            hideShow={hideShow}
           />
-          <input
-            name="pwdUser"
-            type="password"
-            placeholder="Mot de passe"
-            className="inputLog inputLogStyle"
-            onChange={this.handleInput}
-          />
-          <Link to={'/'}>
-            <span className="spanMdpStyle">Mot de passe oublié ?</span>
-          </Link>
 
-          <div className="btnDivLog">
+          <div className="loginPanel center">
             <input
-              type="button"
-              value="Connexion"
-              className="inputLog btnLog"
-              onClick={this.handleSubmit}
+              name="loginUser"
+              type="text"
+              placeholder="Email"
+              className={`${classWrong} inputLog inputLogStyle`}
+              onChange={this.handleInput}
             />
-            <Link to={'/inscription'}>
-              <span className="spanLogStyle">S'enregistrer?</span>
+            <input
+              name="pwdUser"
+              type="password"
+              placeholder="Mot de passe"
+              className={`${classWrong} inputLog inputLogStyle`}
+              onChange={this.handleInput}
+            />
+            <Link to={'/'}>
+              <span className="spanMdpStyle">Mot de passe oublié ?</span>
             </Link>
+
+            <div className="btnDivLog">
+              <input
+                type="button"
+                value="Connexion"
+                className="inputLog btnLog"
+                onClick={this.handleSubmit}
+              />
+              <Link to={'/inscription'}>
+                <span className="spanLogStyle">S'enregistrer?</span>
+              </Link>
+            </div>
           </div>
         </div>
       </Fragment>

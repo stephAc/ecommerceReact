@@ -19,9 +19,6 @@ class Header extends Component {
             <LogBtn />
           ) : (
             <Fragment>
-              <Link to="/connexion">
-                <button className="navBtn">Se connecter</button>
-              </Link>
               <Link to="/panier">
                 <button className="navBtn">
                   Panier <i className="fas fa-cart-arrow-down" />
@@ -29,6 +26,9 @@ class Header extends Component {
                     <div className="badge">{cartLength}</div>
                   ) : null}
                 </button>
+              </Link>
+              <Link to="/connexion">
+                <button className="navBtn">Se connecter</button>
               </Link>
             </Fragment>
           )}

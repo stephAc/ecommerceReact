@@ -10,21 +10,9 @@ export default class SearchBar extends Component {
     if (this.state.searchField !== '') {
       if (event.key === 'Enter' || event.type === 'click') {
         event.preventDefault();
-        fetch(
-          `http://mercury.iut-orsay.fr:5000/article/search/${
-            this.state.searchField
-          }`,
-        )
-          .then(result => result.json())
-          .then(articles => {
-            console.log(articles);
-          })
-          .catch(err => {
-            console.log(err);
-          });
-
-        // this.props.history.push(`/film/research/${this.state.searchField}`);
-        // this.setState({ searchField: '' });
+        window.location.replace(
+          `http://localhost:3000/accueil?search=${this.state.searchField}`,
+        );
       }
       console.log(this.state.searchField);
     }

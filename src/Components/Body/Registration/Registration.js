@@ -157,8 +157,6 @@ export default class Registration extends Component {
 
     jsonFile = JSON.stringify(jsonFile);
 
-    console.log(jsonFile);
-
     fetch('http://mercury.iut-orsay.fr:5000/client', {
       method: 'POST',
       headers: {
@@ -170,6 +168,7 @@ export default class Registration extends Component {
       .then(result => result.json())
       .then(response => {
         console.log(response);
+        // window.location.replace('http://localhost:3000/accueil');
       })
       .catch(err => {
         console.log('err : ', err);

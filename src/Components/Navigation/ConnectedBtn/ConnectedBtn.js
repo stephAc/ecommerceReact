@@ -37,7 +37,7 @@ const ConnectedBtn = props => {
           className="linkStyle"
           to="/"
           onClick={() => {
-            this.props.userLogOut();
+            props.userLogOut();
           }}
         >
           <span>
@@ -50,8 +50,6 @@ const ConnectedBtn = props => {
 };
 
 const mapStateToProps = state => {
-  console.log(state.user);
-  console.log('length :', state.panier.shoppingCart.length);
   return { shoppingCart: state.panier.shoppingCart };
 };
 

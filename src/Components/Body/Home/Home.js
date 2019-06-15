@@ -1,8 +1,9 @@
 import React from 'react';
 import './Home.css';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Home = () => {
+const Home = props => {
   return (
     <div className="homePageContainer">
       <div className="homePageContent center">
@@ -16,9 +17,12 @@ const Home = () => {
             Commandez sur le site et faites vous livrer chez vous.
           </p>
           <div>
-            <Link to="/connexion">
-              <button className="btnHome">Se connecter</button>
-            </Link>
+            {props.userLog ? null : (
+              <Link to="/connexion">
+                <button className="btnHome">Se connecter</button>
+              </Link>
+            )}
+
             <Link to="/accueil">
               <button className="btnHome">Poursuivre sans compte </button>
             </Link>
@@ -29,4 +33,8 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapsStateToProps = state => {
+  return { userLog: state.user.userLog };
+};
+
+export default connect(mapsStateToProps)(Home);
