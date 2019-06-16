@@ -5,6 +5,7 @@ import logoImg from '../../../assets/img/logo.jpg';
 import LogBtn from '../ConnectedBtn/ConnectedBtn';
 import { connect } from 'react-redux';
 import SearchBar from '../SearchBar/SearchBar';
+import Burger from '../Burger/Burger';
 class Header extends Component {
   render() {
     const cartLength = this.props.shoppingCart.length;
@@ -14,21 +15,23 @@ class Header extends Component {
           <img alt="logo" src={logoImg} style={{ height: 50 }} />
         </Link>
         <SearchBar />
+        <Burger />
         <div className="flexDisplayNav">
           {this.props.userLog ? (
             <LogBtn />
           ) : (
             <Fragment>
-              <Link to="/panier">
+              <Link to="/panier" className="hideLink">
                 <button className="navBtn">
-                  Panier <i className="fas fa-cart-arrow-down" />
+                  <span className="hideTxt">Panier</span>
+                  <i className="fas fa-cart-arrow-down" />
                   {cartLength !== 0 ? (
                     <div className="badge">{cartLength}</div>
                   ) : null}
                 </button>
               </Link>
-              <Link to="/connexion">
-                <button className="navBtn">Se connecter</button>
+              <Link to="/connexion" className="hideLink">
+                <button className="navBtn">Connexion</button>
               </Link>
             </Fragment>
           )}
