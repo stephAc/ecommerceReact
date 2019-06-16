@@ -3,6 +3,9 @@ import './Registration.css';
 // import Address from '../../Body/Address/Address';
 import Header from '../../Navigation/Header/Header';
 import Footer from '../../Footer/Footer';
+import PopUpMsg from '../PopupMsg/PopupMsg';
+import { connect } from 'react-redux';
+import { userLogIn } from '../../../actions/user_action';
 
 function Alert(props) {
   // const field = props.field;
@@ -29,7 +32,7 @@ function LengthAlert(props) {
 /**
  * https://fr.reactjs.org/docs/forms.html#handling-multiple-inputs
  */
-export default class Registration extends Component {
+class Registration extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,6 +41,9 @@ export default class Registration extends Component {
         password: '',
         text: '',
       },
+
+      hideShow: false,
+
       length_civilite_id: 50,
       length_email: 50,
       length_ligne1: 300,
@@ -168,16 +174,32 @@ export default class Registration extends Component {
       .then(result => result.json())
       .then(response => {
         console.log(response);
-        // window.location.replace('http://localhost:3000/accueil');
+
+        if (response.error === 'An account exist with this mail') {
+          this.setState({ hideShow: true });
+        } else if (response.client_id) {
+          this.props.userLogIn(response.client_id);
+          window.location.replace('http://localhost:3000/accueil');
+        }
       })
       .catch(err => {
         console.log('err : ', err);
       });
   };
 
+  showPopupFunc = () => {
+    this.setState({ hideShow: false });
+  };
+
   render() {
     return (
       <article>
+        <PopUpMsg
+          showPopup={this.state.hideShow}
+          hide={this.showPopupFunc}
+          title="fas fa-user-times"
+          message={'Email non disponible'}
+        />
         <Header />
         <main>
           <Alert
@@ -607,3 +629,12 @@ export default class Registration extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return { userLog: state.userLog };
+};
+
+export default connect(
+  mapStateToProps,
+  { userLogIn },
+)(Registration);

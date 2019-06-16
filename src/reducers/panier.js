@@ -47,6 +47,10 @@ export default (state = initialState, action) => {
         )
       ].articleQte--;
       return { ...state, shoppingCart: tmpDiminueShoppingCart };
+
+    case 'CLEAR_CART':
+      let cart = [];
+      return { ...state, shoppingCart: cart };
     default:
       return state;
   }

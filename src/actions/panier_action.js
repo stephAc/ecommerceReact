@@ -34,3 +34,10 @@ export const diminueQteArticle = article => {
     },
   };
 };
+
+export const clearCart = () => {
+  return {
+    type: 'CLEAR_CART',
+    item: {},
+  };
+};
