@@ -28,9 +28,6 @@ class Panier extends Component {
           message: 'Veuillez vous connecter pour commander',
         });
       } else {
-        console.log(
-          `http://mercury.iut-orsay.fr:5000/client/${this.props.userId}`,
-        );
         fetch(`http://mercury.iut-orsay.fr:5000/client/${this.props.userId}`)
           .then(result => result.json())
           .then(user => {

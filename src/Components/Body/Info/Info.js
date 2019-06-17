@@ -2,18 +2,71 @@ import React, { Component } from 'react';
 import './Info.css';
 import avatarImg from '../../../assets/img/avatarUser.png';
 import Header from '../../Navigation/Header/Header';
-
-export default class InFO extends Component {
+import { connect } from 'react-redux';
+import PopupMsg from '../PopupMsg/PopupMsg';
+class Info extends Component {
   state = {
     enableInputBool: true,
-    nom: 'nom',
-    prenom: 'prenom',
-    sexe: 'sexe',
-    telephone: 'telephone',
-    adresse: 'adresse',
-    adresseFactu: 'adresseFactu',
-    adresseLivraison: 'adresseLivraison',
+    nom: '',
+    prenom: '',
+    sexe: '',
+    telephone: '',
+    adresse: '',
+    adresseFactu: '',
+    adresseLivraison: '',
+    popupShow: false,
   };
+
+  componentDidMount() {
+    console.log(this.props.userId);
+    if (this.props.userId) {
+      fetch(`http://mercury.iut-orsay.fr:5000/client/${this.props.userId}`)
+        .then(result => result.json())
+        .then(user => {
+          console.log(user);
+
+          let sexe;
+          switch (user.sexe_id) {
+            case '0':
+              sexe = 'Autre';
+              break;
+            case '1':
+              sexe = 'Homme';
+              break;
+            default:
+              sexe = 'Femme';
+          }
+
+          let adresse =
+            user.ligne1 +
+            ' ' +
+            user.ligne2 +
+            ' ' +
+            user.ligne3 +
+            ' ' +
+            user.ligne4 +
+            ' ' +
+            user.ligne5 +
+            ' ' +
+            user.ligne6 +
+            ' ' +
+            user.ligne7;
+
+          console.log(adresse);
+
+          this.setState({
+            nom: user.nom,
+            prenom: user.prenom,
+            sexe: sexe,
+            telephone: user.telephone,
+            addresse: adresse,
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }
 
   enableInput = () => {
     this.setState(state => ({
@@ -26,6 +79,25 @@ export default class InFO extends Component {
       [event.target.name]: event.target.value,
     });
   };
+  showPopupFunc = () => {
+    this.setState({ popupShow: false });
+  };
+
+  handleSuppr = () => {
+    this.setState({ popupShow: true });
+  };
+
+  confirmedSuppr = () => {
+    fetch('http://mercury.iut-orsay.fr:5000/client/login', {
+      method: 'DELETE',
+    })
+      .then(userDelete => {
+        console.log(userDelete);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   render() {
     const inputStyle =
@@ -36,11 +108,24 @@ export default class InFO extends Component {
     return (
       <React.Fragment>
         <Header />
+        <PopupMsg
+          showPopup={this.state.popupShow}
+          hide={this.showPopupFunc}
+          title="far fa-trash-alt"
+          message="Êtes-vous sur de vouloir supprimer votre compte ?"
+        >
+          <div style={{ display: 'flex', marginTop: 15 }}>
+            <button style={{ color: 'red' }}>Annuler</button>
+            <button onClick={this.confirmedSuppr}>Confirmer</button>
+          </div>
+        </PopupMsg>
         <div className="userInfoGrid">
           <div className="infoAvatar">
             <h1>Info</h1>
             <img src={avatarImg} alt="Avatar" width="200px" height="200px" />
-            <button style={{ marginTop: 50 }}>Supprimer</button>
+            <button style={{ marginTop: 50 }} onClick={this.handleSuppr}>
+              Supprimer
+            </button>
             <button onClick={this.enableInput}>Modifier</button>
           </div>
 
@@ -134,7 +219,7 @@ export default class InFO extends Component {
             </div>
 
             <div className={inputStyle[1] + ' btnCenter '}>
-              <button>Sauvegarder</button>
+              <button onClick={this.enableInput}>Sauvegarder</button>
               <button className="btnQuit" onClick={this.enableInput}>
                 Annuler
               </button>
@@ -145,3 +230,9 @@ export default class InFO extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return { userId: state.user.userId };
+};
+
+export default connect(mapStateToProps)(Info);

@@ -13,6 +13,7 @@ const PopupMsg = props => {
           &times;
         </span>
         <div className="content">{props.message}</div>
+        <div>{props.children}</div>
       </div>
     </div>
   );
